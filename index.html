@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Processo Unificado Ágil (AUP)</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #001f3f; /* Azul escuro */
+            color: white;
+            height: 100vh;
+            overflow: hidden;
+        }
+        
+        .slides-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+            text-align: center;
+        }
+        
+        .slide.active {
+            opacity: 1;
+        }
+        
+        .slide-title {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .slide-content {
+            max-width: 900px;
+            font-size: 1.5rem;
+            line-height: 1.6;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .bullet-points {
+            text-align: left;
+            margin-top: 1.5rem;
+        }
+        
+        .bullet-points li {
+            margin-bottom: 0.8rem;
+            list-style-type: none;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .bullet-points li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #7FDBFF;
+        }
+        
+        .discipline {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .discipline i {
+            font-size: 2rem;
+            margin-right: 1rem;
+            color: #7FDBFF;
+            width: 50px;
+        }
+        
+        .phase {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+        
+        .phase-title {
+            color: #7FDBFF;
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+        }
+        
+        .controls {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 1rem;
+            z-index: 100;
+        }
+        
+        .control-btn {
+            background-color: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: background-color 0.3s;
+        }
+        
+        .control-btn:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+        
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 5px;
+            background-color: #7FDBFF;
+            width: 0%;
+            transition: width 0.3s ease;
+            z-index: 100;
+        }
+        
+        .slide-number {
+            position: fixed;
+            bottom: 1rem;
+            right: 1rem;
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        .part-title {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.6);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .speaker {
+            position: fixed;
+            top: 3rem;
+            left: 1rem;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.5);
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="progress-bar"></div>
+    
+    <div class="slides-container">
+        <!-- Slide 1: Título -->
+        <div class="slide active">
+            <h1 class="slide-title">Processo Unificado Ágil (AUP)</h1>
+            <div class="slide-content">
+                <p>Uma abordagem ágil para desenvolvimento de software</p>
+            </div>
+            <div class="part-title">Apresentação</div>
+            <div class="speaker">Todos os palestrantes</div>
+        </div>
+        
+        <!-- Parte 1: Introdução e Origem -->
+        <div class="slide">
+            <h1 class="slide-title">Introdução e Origem</h1>
+            <div class="slide-content">
+                <p>O Processo Unificado Ágil (AUP) foi desenvolvido por Scott Ambler como uma simplificação do Rational Unified Process (RUP)</p>
+                <ul class="bullet-points">
+                    <li>Combina elementos do RUP com princípios ágeis</li>
+                    <li>Foca na entrega contínua de valor</li>
+                    <li>Adapta-se a projetos de diferentes tamanhos</li>
+                </ul>
+            </div>
+            <div class="part-title">Parte 1: Introdução e Origem</div>
+            <div class="speaker">Palestrante 1</div>
+        </div>
+        
+        <div class="slide">
+            <h1 class="slide-title">Scott Ambler</h1>
+            <div class="slide-content">
+                <p>Pioneiro na área de métodos ágeis e desenvolvimento de software</p>
+                <ul class="bullet-points">
+                    <li>Co-criador do método ágil Disciplined Agile Delivery (DAD)</li>
+                    <li>Autor de vários livros sobre desenvolvimento ágil</li>
+                    <li>Defensor da simplificação de processos complexos</li>
+                </ul>
+            </div>
+            <div class="part-title">Parte 1: Introdução e Origem</div>
+            <div class="speaker">Palestrante 1</div>
+        </div>
+        
+        <div class="slide">
+            <h1 class="slide-title">Filosofia Ágil no AUP</h1>
+            <div class="slide-content">
+                <p>O AUP incorpora os valores e princípios do Manifesto Ágil</p>
+                <ul class="bullet-points">
+                    <li>Indivíduos e interações mais que processos e ferramentas</li>
+                    <li>Software funcionando mais que documentação abrangente</li>
+                    <li>Colaboração com o cliente mais que negociação de contratos</li>
+                    <li>Responder a mudanças mais que seguir um plano</li>
+                </ul>
+            </div>
+            <div class="part-title">Parte 1: Introdução e Origem</div>
+            <div class="speaker">Palestrante 1</div>
+        </div>
+        
+        <!-- Parte 2: Disciplinas -->
+        <div class="slide">
+            <h1 class="slide-title">As 7 Disciplinas do AUP</h1>
+            <div class="slide-content">
+                <p>O AUP organiza suas atividades em sete disciplinas principais</p>
+                <div class="bullet-points">
+                    <div class="discipline">
+                        <i class="fas fa-project-diagram"></i>
+                        <span>Modelo (Model)</span>
+                    </div>
+                    <div class="discipline">
+                        <i class="fas fa-code"></i>
+                        <span>Implementação (Implementation)</span>
+                    </div>
+                    <div class="discipline">
+                        <i class="fas fa-vial"></i>
+                        <span>Teste (Test)</span>
+                    </div>
+                    <div class="discipline">
+                        <i class="fas fa-rocket"></i>
+                        <span>Implantação (Deployment)</span>
+                    </div>
+                    <div class="discipline">
+                        <i class="fas fa-cog"></i>
+                        <span>Configuração (Configuration)</span>
+                    </div>
+                    <div class="discipline">
+                        <i class="fas fa-tasks"></i>
+                        <span>Gerenciamento (Management)</span>
+                    </div>
+                    <div class="discipline">
+                        <i class="fas fa-tools"></i>
+                        <span>Ambiente (Environment)</span>
+                    </div>
+                </div>
+            </div>
+            <div class="part-title">Parte 2: Disciplinas</div>
+            <div class="speaker">Palestrante 2</div>
+        </div>
+        
+        <div class="slide">
+            <h1 class="slide-title">Disciplina: Modelo</h1>
+            <div class="slide-content">
+                <p>Define a estrutura e arquitetura do sistema</p>
+                <ul class="bullet-points">
+                    <li>Desenvolvimento de diagramas UML</li>
+                    <li>Definição da arquitetura do sistema</li>
+                    <li>Modelagem de negócios e requisitos</li>
+                    <li>Foca na compreensão do problema</li>
+                </ul>
+            </div>
+            <div class="part-title">Parte 2: Disciplinas</div>
+            <div class="speaker">Palestrante 2</div>
+        </div>
+        
+        <div class="slide">
+            <h1 class="slide-title">Disciplina: Implementação</h1>
+            <div class="slide-content">
+                <p>Transforma modelos em código executável</p>
+                <ul class="bullet-points">
+                    <li>Desenvolvimento do código-fonte</li>
+                    <li>Programação em pares (pair programming)</li>
+                    <li>Integração contínua</li>
+                    <li>Refatoração constante</li>
+                </ul>
+            </div>
+            <div class="part-title">Parte 2: Disciplinas</div>
+            <div class="speaker">Palestrante 2</div>
+        </div>
+        
+        <div class="slide">
+            <h1 class="slide-title">Disciplina: Teste</h1>
+            <div class="slide-content">
+                <p>Garante a qualidade do software desenvolvido</p>
+                <ul class="bullet-points">
+                    <li>Testes unitários e de integração</li>
+                    <li>Testes de aceitação</li>
+                    <li>Testes de desempenho</li>
+                    <li>Validação de requisitos</li>
+                </ul>
+            </div>
+            <div class="part-title">Parte 2: Disciplinas</div>
+            <div class="speaker">Palestrante 2</div>
+        </div>
+        
+        <div class="slide">
+            <h1 class="slide-title">Disciplina: Implantação</h1>
+            <div class="slide-content">
+                <p>Prepara e disponibiliza o software para uso</p>
+                <ul class="bullet-points">
+                    <li>Empacotamento do software</li>
+                    <li>Distribuição para usuários</li>
+                    <li>Treinamento de usuários finais</li>
+                    <li>Implantação em produção</li>
+                </ul>
+            </div>
+            <div class="part-title">Parte 2: Disciplinas</div>
+            <div class="speaker">Palestrante 2</div>
+        </div>
+        
+        <div class="slide">
+            <h1 class="slide-title">Disciplina: Configuração</h1>
+            <div class="slide-content">
+                <p>Gerencia mudanças no projeto</p>
+                <ul class="bullet-points">
+                    <li>Controle de versão</li>
+                    <li>Gerenciamento de mudanças</li>
+                    <li>Gestão de releases</li>
+                    <li>Controle de configuração</li>
+                </ul>
+            </div>
+            <div class="part-title">Parte 2: Disciplinas</div>
+            <div class="speaker">Palestrante 2</div>
+        </div>
+        
+        <div class="slide">
+            <h1 class="slide-title">Disciplina: Gerenciamento</h1>
+            <div class="slide-content">
+                <p>Coordena as atividades do projeto</p>
+                <ul class="bullet-points">
+                    <li>Planejamento de iterações</li>
+                    <li>Alocação de recursos</li>
+                    <li>Gerenciamento de riscos</li>
+                    <li>Monitoramento do progresso</li>
+                </ul>
+            </div>
+            <div class="part-title">Parte 2: Disciplinas</div>
+            <div class="speaker">Palestrante 2</div>
+        </div>
+        
+        <div class="slide">
+            <h1 class="slide-title">Disciplina: Ambiente</h1>
+            <div class="slide-content">
+                <p>Fornece suporte para o processo de desenvolvimento</p>
+                <ul class="bullet-points">
+                    <li>Seleção e configuração de ferramentas</li>
+                    <li>Definição de padrões e guias</li>
+                    <li>Suporte técnico à equipe</li>
+                    <li>Infraestrutura de desenvolvimento</li>
+                </ul>
+            </div>
+            <div class="part-title">Parte 2: Disciplinas</div>
+            <div class="speaker">Palestrante 2</div>
+        </div>
+        
+        <!-- Parte 3: Etapas do Ciclo de Vida -->
+        <div class="slide">
+            <h1 class="slide-title">Etapas do Ciclo de Vida</h1>
+            <div class="slide-content">
+                <p>O AUP divide o projeto em quatro fases sequenciais</p>
+                <ul class="bullet-points">
+                    <li>Concepção (Inception)</li>
+                    <li>Elaboração (Elaboration)</li>
+                    <li>Construção (Construction)</li>
+                    <li>Transição (Transition)</li>
+                </ul>
+            </div>
+            <div class="part-title">Parte 3: Etapas do Ciclo de Vida</div>
+            <div class="speaker">Palestrante 3</div>
+        </div>
+        
+        <div class="slide">
+            <h1 class="slide-title">Fase: Concepção</h1>
+            <div class="slide-content">
+                <div class="phase">
+                    <h3 class="phase-title">Concepção (Inception)</h3>
+                    <p>Estabelece a viabilidade e escopo do projeto</p>
+                    <ul class="bullet-points">
+                        <li>Definição da visão do projeto</li>
+                        <li>Identificação de stakeholders</li>
+                        <li>Análise de viabilidade técnica e econômica</li>
+                        <li>Definição inicial de requisitos</li>
+                        <li>Planejamento de alto nível</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="part-title">Parte 3: Etapas do Ciclo de Vida</div>
+            <div class="speaker">Palestrante 3</div>
+        </div>
+        
+        <div class="slide">
+            <h1 class="slide-title">Fase: Elaboração</h1>
+            <div class="slide-content">
+                <div class="phase">
+                    <h3 class="phase-title">Elaboração (Elaboration)</h3>
+                    <p>Estabelece a arquitetura robusta do sistema</p>
+                    <ul class="bullet-points">
+                        <li>Refinamento de requisitos</li>
+                        <li>Projeto da arquitetura</li>
+                        <li>Resolução de riscos técnicos</li>
+                        <li>Planejamento detalhado</li>
+                        <li>Desenvolvimento de protótipos</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="part-title">Parte 3: Etapas do Ciclo de Vida</div>
+            <div class="speaker">Palestrante 3</div>
+        </div>
+        
+        <div class="slide">
+            <h1 class="slide-title">Fase: Construção</h1>
+            <div class="slide-content">
+                <div class="phase">
+                    <h3 class="phase-title">Construção (Construction)</h3>
+                    <p>Desenvolvimento incremental do produto</p>
+                    <ul class="bullet-points">
+                        <li>Implementação das funcionalidades</li>
+                        <li>Testes contínuos</li>
+                        <li>Iterações de desenvolvimento</li>
+                        <li>Preparação para implantação</li>
+                        <li>Geração de versões alpha/beta</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="part-title">Parte 3: Etapas do Ciclo de Vida</div>
+            <div class="speaker">Palestrante 3</div>
+        </div>
+        
+        <div class="slide">
+            <h1 class="slide-title">Fase: Transição</h1>
+            <div class="slide-content">
+                <div class="phase">
+                    <h3 class="phase-title">Transição (Transition)</h3>
+                    <p>Entrega do produto para a comunidade de usuários</p>
+                    <ul class="bullet-points">
+                        <li>Testes de aceitação</li>
+                        <li>Treinamento de usuários</li>
+                        <li>Implantação em produção</li>
+                        <li>Suporte pós-implantação</li>
+                        <li>Lições aprendidas</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="part-title">Parte 3: Etapas do Ciclo de Vida</div>
+            <div class="speaker">Palestrante 3</div>
+        </div>
+        
+        <!-- Slide Final -->
+        <div class="slide">
+            <h1 class="slide-title">Obrigado!</h1>
+            <div class="slide-content">
+                <p>Perguntas?</p>
+            </div>
+            <div class="part-title">Conclusão</div>
+            <div class="speaker">Todos os palestrantes</div>
+        </div>
+    </div>
+    
+    <div class="controls">
+        <button class="control-btn" id="prev-btn"><i class="fas fa-arrow-left"></i></button>
+        <button class="control-btn" id="next-btn"><i class="fas fa-arrow-right"></i></button>
+    </div>
+    
+    <div class="slide-number">1/18</div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const slides = document.querySelectorAll('.slide');
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            const progressBar = document.querySelector('.progress-bar');
+            const slideNumber = document.querySelector('.slide-number');
+            
+            let currentSlide = 0;
+            
+            // Função para atualizar os slides
+            function updateSlide() {
+                slides.forEach((slide, index) => {
+                    if (index === currentSlide) {
+                        slide.classList.add('active');
+                    } else {
+                        slide.classList.remove('active');
+                    }
+                });
+                
+                // Atualizar a barra de progresso
+                progressBar.style.width = `${(currentSlide / (slides.length - 1)) * 100}%`;
+                
+                // Atualizar o número do slide
+                slideNumber.textContent = `${currentSlide + 1}/${slides.length}`;
+            }
+            
+            // Navegar para o próximo slide
+            function nextSlide() {
+                if (currentSlide < slides.length - 1) {
+                    currentSlide++;
+                    updateSlide();
+                }
+            }
+            
+            // Navegar para o slide anterior
+            function prevSlide() {
+                if (currentSlide > 0) {
+                    currentSlide--;
+                    updateSlide();
+                }
+            }
+            
+            // Event listeners para os botões
+            nextBtn.addEventListener('click', nextSlide);
+            prevBtn.addEventListener('click', prevSlide);
+            
+            // Event listener para teclado
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'ArrowRight' || e.key === ' ') {
+                    nextSlide();
+                } else if (e.key === 'ArrowLeft') {
+                    prevSlide();
+                }
+            });
+            
+            // Inicializar
+            updateSlide();
+        });
+    </script>
+</body>
+</html>
